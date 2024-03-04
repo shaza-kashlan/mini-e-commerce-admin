@@ -1,14 +1,13 @@
 #root {
   max-width: 1280px;
- 
+
   /* padding: 2rem;
   text-align: center; */
-  
 }
 
 .navbar img {
   height: 30%;
-  width : 50px;
+  width: 50px;
   padding-left: 20px;
 }
 .navbar {
@@ -16,7 +15,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width : 100%;
+  width: 100%;
   background-color: rgb(154, 154, 211);
 }
 
@@ -41,13 +40,17 @@
   color: white;
 }
 
-.sidebar-list{
+.sidebar-list {
   background-color: #ffffff;
   width: 200px;
   height: 100vh;
-  margin:0;
+  margin: 0;
 }
 
-ul{
+.sidebar.open {
+  left: 0; /* Show the sidebar when it's open */
+}
+
+ul {
   margin: 0;
 }
