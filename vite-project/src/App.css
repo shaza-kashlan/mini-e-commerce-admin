@@ -47,18 +47,6 @@
   margin: 0;
 }
 
-<<<<<<< HEAD
-ul{
-  
-  margin: 0;
-}
-
-li{
-  width: 100%;
-  border-bottom: solid 1px black;
-  padding-top : 20px;
-}
-=======
 .sidebar.open {
   left: 0; /* Show the sidebar when it's open */
 }
@@ -66,4 +54,3 @@ li{
 ul {
   margin: 0;
 }
->>>>>>> f167e8976743d7038d937e2af03fb1ad9daec40a
