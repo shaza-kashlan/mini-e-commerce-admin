@@ -2,12 +2,8 @@ import React from "react";
 import { ProductCard } from "./ProductCard";
 
 const ProductList = ({ dataList, setProductList }) => {
-  //   const deleteProduct = (productId) => {
-  //     setProductList(dataList.filter((product) => productId !== product.id));
-  //   };
-
   return (
-    <div>
+    <div className="product-list">
       {dataList.map((oneProduct, index) => {
         return (
           <ProductCard
