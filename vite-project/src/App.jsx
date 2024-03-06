@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer";
 import { Sidebar } from "./components/Sidebar";
 import products from "./assets/products.json";
 import ProductList from "./components/ProductList";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [isImageClicked, setIsImageClicked] = useState(false);
@@ -19,9 +20,12 @@ function App() {
   return (
     <>
       <Navbar onSidebarToggle={onSidebarToggle} />
-      {isImageClicked && <Sidebar />}
-      <ProductList dataList={productList} setProductList={setProductList} />
-      <Footer />
+      {/* {isImageClicked && <Sidebar />} */}
+      <Routes>
+        <Route path="/" element={<Footer />} />
+      </Routes>
+      {/* <ProductList dataList={productList} setProductList={setProductList} /> */}
+      {/* <Footer /> */}
     </>
   );
 }
