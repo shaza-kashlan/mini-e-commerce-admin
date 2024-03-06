@@ -24,14 +24,25 @@ function App() {
   return (
     <>
       <Navbar onSidebarToggle={onSidebarToggle} />
-      {/* {isImageClicked && <Sidebar />} */}
+      {isImageClicked && <Sidebar />}
       <Routes>
-        <Route path="/" element={<DashboardPage productList={productList} setProductList = {setProductList} />} />
-        <Route path="/About-Us" element={<AboutPage/>}/>
-        <Route path="/NotFound" element={<NotFoundPage/>}/>
-        <Route path="/product/:productId" element={<ProductDetailPage allProducts={productList} />} />
+        <Route
+          path="/"
+          element={
+            <DashboardPage
+              productList={productList}
+              setProductList={setProductList}
+            />
+          }
+        />
+        <Route path="/About-Us" element={<AboutPage />} />
+        <Route path="/NotFound" element={<NotFoundPage />} />
+        <Route
+          path="/products/:productId"
+          element={<ProductDetailPage productListData={productList} />}
+        />
       </Routes>
-     
+
       {/* <ProductList dataList={productList} setProductList={setProductList} /> */}
       <Footer />
     </>
