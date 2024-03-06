@@ -6,6 +6,10 @@ import { Sidebar } from "./components/Sidebar";
 import products from "./assets/products.json";
 import ProductList from "./components/ProductList";
 import { Routes, Route } from "react-router-dom";
+import DashboardPage from "./pages/DashboardPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import { AboutPage } from "./pages/AboutPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 function App() {
   const [isImageClicked, setIsImageClicked] = useState(false);
@@ -22,10 +26,14 @@ function App() {
       <Navbar onSidebarToggle={onSidebarToggle} />
       {/* {isImageClicked && <Sidebar />} */}
       <Routes>
-        <Route path="/" element={<Footer />} />
+        <Route path="/" element={<DashboardPage productList={productList} setProductList = {setProductList} />} />
+        <Route path="/About-Us" element={<AboutPage/>}/>
+        <Route path="/NotFound" element={<NotFoundPage/>}/>
+        <Route path="/product/:productId" element={<ProductDetailPage allProducts={productList} />} />
       </Routes>
+     
       {/* <ProductList dataList={productList} setProductList={setProductList} /> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
