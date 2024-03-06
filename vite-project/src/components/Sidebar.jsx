@@ -1,18 +1,19 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
-export const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
   return (
-    <div className="sidebar-list">
-      {
-        <ul>
-          <li>
-            <a href="#"> Home </a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-        </ul>
-      }
+    <div className={`sidebar ${isOpen ? "open" : ""}`}>
+      <ul className="menu">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/About-US">About</Link>
+        </li>
+      </ul>
     </div>
   );
 };
+
+export default Sidebar;

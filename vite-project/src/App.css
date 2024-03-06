@@ -38,21 +38,6 @@
   color: white;
 }
 
-.sidebar-list {
-  background-color: #ffffff;
-  width: 200px;
-  height: 100vh;
-  margin: 0;
-}
-
-.sidebar.open {
-  left: 0; /* Show the sidebar when it's open */
-}
-
-ul {
-  margin: 0;
-}
-
 .product-list {
   display: flex;
   flex-direction: column;
@@ -98,4 +83,39 @@ ul {
 
 .card-rating button {
   color: #ffffff;
+}
+
+/*side bar style */
+.sidebar {
+  position: flex;
+  top: 100px;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: rgb(156, 65, 117);
+  transition: left 0.3s ease;
+}
+
+.sidebar.open {
+  left: 0; /* Slide the sidebar in when 'open' class is applied */
+}
+
+.menu {
+  margin-top: 5px;
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #fdfdfd;
+}
+
+.menu li a {
+  color: #fff; /* Menu item text color */
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  background-color: #6a0047; /* Background color on hover */
 }
