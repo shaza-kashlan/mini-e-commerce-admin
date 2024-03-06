@@ -1,7 +1,8 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { AboutPage } from "../pages/AboutPage";
 
-export const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
   return (
     <div className="sidebar-list">
       <Link to={<AboutPage/>}>Home</Link>
@@ -19,3 +20,5 @@ export const Sidebar = () => {
     </div>
   );
 };
+
+export default Sidebar;

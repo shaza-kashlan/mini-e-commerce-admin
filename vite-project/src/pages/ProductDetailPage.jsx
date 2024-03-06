@@ -6,9 +6,11 @@ import { ProductCard } from "../components/ProductCard";
 const ProductDetailPage = ({ productListData }) => {
   const { productId } = useParams();
 
-  const productDetail = productListData.find(
-    (product) => product.id == productId
-  );
+  const productDetail = productListData.find((product) => {
+    if (product.id == productId) {
+      return product;
+    }
+  });
 
   const [oneProduct, setOneProduct] = useState(productDetail);
   if (!oneProduct) {
