@@ -36,7 +36,7 @@ function App() {
           }
         />
         <Route path="/About-Us" element={<AboutPage />} />
-        <Route path="/NotFound" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
         <Route
           path="/products/:productId"
           element={<ProductDetailPage productListData={productList} />}

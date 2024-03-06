@@ -1,22 +1,47 @@
 import React from "react"
-
+import alexImg from "../assets/alex-img.jpeg"
     export const AboutPage = () => {
     return (
         <div>
+        <div className="aboutDescription">
             <h1>Mini Project : e-commerce web-site</h1>
             <p>
-                E-commerce app with an admin dashboard where the admin can 
-                see and manage the products and inventory in the store.
+                Our e-commerce web-site is an app with an admin dashboard 
+                where the admin can see and manage the inventory and all the products
+                in the store.
             </p>
+        </div>
+            <div className="intro">
             <h2>Made by :</h2>
-            <p>Shaza Kashlan 
-                <a href="https://github.com/shaza-kashlan">Shaza's GitHub</a>
-                <a href="">Shaza's LinkedIn</a>
-            </p>
-            <p>Alexandra Busson
-                <a href="https://github.com/MimiBsn">Alexandra's GitHub</a>
-                <a href="https://www.linkedin.com/in/alexandra-busson/">Alexandra's LinkedIn</a>
-            </p>
+            </div>
+        <section className="coderCard">
+            <div className="aboutCard">
+
+            {/* <div className="photo">
+                <img src={shazaImg} alt="Shaza's picture"/>
+            </div> */}
+            <div className="coderInfo" >
+                <h3>Shaza Kashlan </h3>
+                <p><a href="https://github.com/shaza-kashlan">Her GitHub</a></p>
+                <p><a href="">Her LinkedIn</a></p>
+            </div>
+            </div>
+
+            <div className="aboutCard">
+            <div className="photo">
+                <img src={alexImg} alt="Alexandra's picture"/>
+            </div>
+            <div className="coderInfo" >
+                <h3>Alexandra Busson</h3>
+                <p><a href="https://github.com/MimiBsn"> Her GitHub</a></p>
+                <p><a href="https://www.linkedin.com/in/alexandra-busson/">Her LinkedIn</a></p>
+            </div>
+
+            </div>
+            
+
+        </section>
+
         </div>
     )
     }

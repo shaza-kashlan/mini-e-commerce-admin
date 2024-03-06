@@ -26,12 +26,13 @@
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: -webkit-fill-available;
   height: 20px;
   color: #ffffff;
   padding: 10px;
   text-align: center;
   background-color: rgb(156, 65, 117);
+  margin-top: 40px;
 }
 
 .footer a {
@@ -98,4 +99,65 @@ ul {
 
 .card-rating button {
   color: #ffffff;
+}
+
+.coderCard{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.aboutCard {
+  background-color: rgb(156,65,117);
+  width: 400px;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  margin-top: 10px;
+  color: rgb(255, 255, 255);
+  text-align: justify;
+  margin-bottom: 80px;
+}
+
+.aboutCard img {
+  /* padding: 5px;  It removes the border radius*/
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+  
+}
+
+.coderInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.not-found {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.aboutDescription {
+  width: 900px;
+  display: flex;
+  flex-direction: column ;
+  padding: 10px;
+}
+
+.aboutDescription p{
+  font-size: 1.3em;
+  padding: 5px;
+}
+
+.intro{
+text-align: center;
+text-decoration: underline;
 }
