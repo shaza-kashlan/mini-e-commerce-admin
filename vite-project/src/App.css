@@ -121,14 +121,14 @@
   background-color: #6a0047; /* Background color on hover */
 }
 
-.coderCard{
+.coderCard {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
 .aboutCard {
-  background-color: rgb(156,65,117);
+  background-color: rgb(156, 65, 117);
   width: 400px;
   display: flex;
   border: 1px solid #ccc;
@@ -146,10 +146,9 @@
   width: 150px;
   height: auto;
   border-radius: 5px;
-  
 }
 
-.coderInfo{
+.coderInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,22 +161,56 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
 
 .aboutDescription {
   width: 900px;
   display: flex;
-  flex-direction: column ;
+  flex-direction: column;
   padding: 10px;
 }
 
-.aboutDescription p{
+.aboutDescription p {
   font-size: 1.3em;
   padding: 5px;
 }
 
-.intro{
-text-align: center;
-text-decoration: underline;
+.intro {
+  text-align: center;
+  text-decoration: underline;
+}
+
+/*side bar style */
+.sidebar {
+  position: flex;
+  top: 100px;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: rgb(156, 65, 117);
+  transition: left 0.3s ease;
+}
+
+.sidebar.open {
+  left: 0; /* Slide the sidebar in when 'open' class is applied */
+}
+
+.menu {
+  margin-top: 5px;
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #fdfdfd;
+}
+
+.menu li a {
+  color: #fff; /* Menu item text color */
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  background-color: #6a0047; /* Background color on hover */
 }
