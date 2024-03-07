@@ -48,10 +48,12 @@ function AddProductForm({ productList, setProductList }) {
   return (
     <form>
       <h2>Add a New Product</h2>
-      <div>
+      <div className="form-boxes">
+      <div >
         <label>
-          Title:
+          Title :
           <input
+            placeholder="Product's title"
             name="title"
             type="text"
             value={title}
@@ -61,8 +63,9 @@ function AddProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Description:
+          Description :
           <textarea
+            placeholder="Put a description here"
             name="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -71,7 +74,7 @@ function AddProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Price:
+          Price :
           <input
             name="price"
             type="number"
@@ -82,7 +85,7 @@ function AddProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Discount Percentage:
+          Discount % :
           <input
             name="discountPercentage"
             type="number"
@@ -93,7 +96,7 @@ function AddProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Rating:
+          Rating :
           <input
             name="rating"
             type="number"
@@ -104,7 +107,7 @@ function AddProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Stock:
+          Stock :
           <input
             name="stock"
             type="number"
@@ -115,8 +118,9 @@ function AddProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Brand:
+          Brand :
           <input
+            placeholder="Product's brand"
             name="brand"
             type="text"
             value={brand}
@@ -126,19 +130,40 @@ function AddProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Category:
-          <input
-            name="category"
-            type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
+          Category :
+          <select 
+          name="category"
+          type="text"
+          onChange={(e) => setCategory(e.target.value)}>
+            <option value="">---None---</option>
+            <option value="smartphones">Smartphones</option>
+            <option value="laptops">Laptops</option>
+            <option value="fragrances">Fragrances</option>
+            <option value="skincare">Skincare</option>
+            <option value="groceries">Groceries</option>
+            <option value="home-decoration">Home decoration</option>
+            <option value="furniture">Furniture</option>
+            <option value="tops">Tops</option>
+            <option value="womens-dresses">Women's dresses</option>
+            <option value="womens-shoes">Women's shoes</option>
+            <option value="mens-shirt">Men's shirt</option>
+            <option value="mens-shoes">Men's shoes</option>
+            <option value="mens-watches">Men's watches</option>
+            <option value="womens-watches">Women's watches</option>
+            <option value="womens-bags">Women's bags</option>
+            <option value="womens-jewellery">Women's jewellery</option>
+            <option value="sunglasses">Sunglasses</option>
+            <option value="automotive">Automotive</option>
+            <option value="motorcycle">Motorcycle</option>
+            <option value="lighting">Lighting</option>
+          </select>
         </label>
       </div>
       <div>
         <label>
-          Thumbnail URL:
+          Thumbnail :
           <input
+            placeholder="Insert the img URL"
             name="thumbnail"
             type="url"
             value={thumbnail}
@@ -148,14 +173,16 @@ function AddProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Images (separate URLs by comma):
+          Images :
           <input
+            placeholder="Separate URLs by commas"
             name="images"
             type="text"
             value={images}
             onChange={(e) => setImages(e.target.value)}
           />
         </label>
+      </div>
       </div>
       <button type="submit" on onClick={handleSubmitProduct}>
         Add Product

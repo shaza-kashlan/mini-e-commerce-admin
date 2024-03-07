@@ -67,9 +67,10 @@ function UpdateProductForm({ productList, setProductList }) {
   return (
     <form onSubmit={handleUpdateProduct}>
       <h2>Update Product</h2>
-      <div>
+      <div className="form-boxes">
+      <div >
         <label>
-          Title:
+          Title :
           <input
             name="title"
             type="text"
@@ -80,7 +81,7 @@ function UpdateProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Description:
+          Description :
           <textarea
             name="description"
             value={description}
@@ -90,7 +91,7 @@ function UpdateProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Price:
+          Price :
           <input
             name="price"
             type="number"
@@ -101,7 +102,7 @@ function UpdateProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Discount Percentage:
+          Discount % :
           <input
             name="discountPercentage"
             type="number"
@@ -112,7 +113,7 @@ function UpdateProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Rating:
+          Rating :
           <input
             name="rating"
             type="number"
@@ -123,7 +124,7 @@ function UpdateProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Stock:
+          Stock :
           <input
             name="stock"
             type="number"
@@ -134,7 +135,7 @@ function UpdateProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Brand:
+          Brand :
           <input
             name="brand"
             type="text"
@@ -145,18 +146,39 @@ function UpdateProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Category:
-          <input
-            name="category"
-            type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
+          Category :
+          <select 
+          name="category"
+          type="text"
+          onChange={(e) => setCategory(e.target.value)}>
+            <option value={category}>{category}</option>
+            <option value="smartphones">Smartphones</option>
+            <option value="laptops">Laptops</option>
+            <option value="fragrances">Fragrances</option>
+            <option value="skincare">Skincare</option>
+            <option value="groceries">Groceries</option>
+            <option value="home-decoration">Home decoration</option>
+            <option value="furniture">Furniture</option>
+            <option value="tops">Tops</option>
+            <option value="womens-dresses">Women's dresses</option>
+            <option value="womens-shoes">Women's shoes</option>
+            <option value="mens-shirt">Men's shirt</option>
+            <option value="mens-shoes">Men's shoes</option>
+            <option value="mens-watches">Men's watches</option>
+            <option value="womens-watches">Women's watches</option>
+            <option value="womens-bags">Women's bags</option>
+            <option value="womens-jewellery">Women's jewellery</option>
+            <option value="sunglasses">Sunglasses</option>
+            <option value="automotive">Automotive</option>
+            <option value="motorcycle">Motorcycle</option>
+            <option value="lighting">Lighting</option>
+            <option value="">---None---</option>
+          </select>
         </label>
       </div>
       <div>
         <label>
-          Thumbnail URL:
+          Thumbnail :
           <input
             name="thumbnail"
             type="url"
@@ -167,7 +189,7 @@ function UpdateProductForm({ productList, setProductList }) {
       </div>
       <div>
         <label>
-          Images (separate URLs by comma):
+          Images :
           <input
             name="images"
             type="text"
@@ -175,6 +197,7 @@ function UpdateProductForm({ productList, setProductList }) {
             onChange={(e) => setImages(e.target.value)}
           />
         </label>
+      </div>
       </div>
       <button type="submit" >
         Update Product

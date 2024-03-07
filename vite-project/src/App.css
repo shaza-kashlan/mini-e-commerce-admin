@@ -23,7 +23,7 @@
 }
 
 .footer {
-  position: fixed;
+  /* position: fixed; */
   left: 0;
   bottom: 0;
   width: -webkit-fill-available;
@@ -32,7 +32,7 @@
   padding: 10px;
   text-align: center;
   background-color: rgb(156, 65, 117);
-  margin-top: 40px;
+  margin-top: 110px;
 }
 
 .footer a {
@@ -83,7 +83,7 @@
 }
 
 .card-rating button {
-  color: #ffffff;
+  color: #6a0047;
 }
 
 /*side bar style */
@@ -213,4 +213,30 @@
 
 .menu li a:hover {
   background-color: #6a0047; /* Background color on hover */
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form button{
+  margin:20px 0 0 0 ;
+}
+
+form label{
+  text-decoration: overline dotted;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* .form-boxes{
+  width : 400px;
+} */
+
+.form-boxes input{
+  margin: 5px;
+  padding: 5px 10px;
 }
