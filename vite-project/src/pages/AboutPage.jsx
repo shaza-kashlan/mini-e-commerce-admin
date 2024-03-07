@@ -23,7 +23,7 @@ import alexImg from "../assets/alex-img.jpeg"
             <div className="coderInfo" >
                 <h3>Shaza Kashlan </h3>
                 <p><a href="https://github.com/shaza-kashlan">Her GitHub</a></p>
-                <p><a href="">Her LinkedIn</a></p>
+                <p><a href="https://www.linkedin.com/in/shaza-kashlan-4a5994179/">Her LinkedIn</a></p>
             </div>
             </div>
 

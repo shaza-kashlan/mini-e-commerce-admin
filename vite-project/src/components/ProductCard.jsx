@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+// import { UpdateProductForm } from "./UpdateProductForm";
+
 export const ProductCard = (props) => {
   const deleteProduct = (productId) => {
     props.setProductList(
@@ -21,6 +24,12 @@ export const ProductCard = (props) => {
       </div>
       <div className="card-rating">
         <p> Product Rate :{props.oneProduct.rating > 4.5 ? "😀" : "😥"}</p>
+        <Link to={`/updateProduct/${props.oneProduct.id}`}>
+        <button >
+          Update Button
+        </button>
+        </Link>
+
         <button
           onClick={() => {
             deleteProduct(props.oneProduct.id);
