@@ -10,14 +10,14 @@ export const ProductCard = (props) => {
       <img src={props.oneProduct.thumbnail} />
 
       <div className="card-info">
-        <h3>{props.oneProduct.title}</h3>
-        <p>{props.oneProduct.description}</p>
-        <p>{props.oneProduct.price}</p>
-        <p>{props.oneProduct.discountPercentage}</p>
-        <p>{props.oneProduct.rating}</p>
-        <p>{props.oneProduct.stock}</p>
-        <p>{props.oneProduct.brand}</p>
-        <p>{props.oneProduct.category}</p>
+        <h3>Title: {props.oneProduct.title}</h3>
+        <p>Description: {props.oneProduct.description}</p>
+        <p>Price: {props.oneProduct.price}€</p>
+        <p>DiscountPercentage: {props.oneProduct.discountPercentage}</p>
+        <p>Rating: {props.oneProduct.rating}</p>
+        <p>Stock: {props.oneProduct.stock}</p>
+        <p>Brand: {props.oneProduct.brand}</p>
+        <p>Category: {props.oneProduct.category}</p>
       </div>
       <div className="card-rating">
         <p> Product Rate :{props.oneProduct.rating > 4.5 ? "😀" : "😥"}</p>

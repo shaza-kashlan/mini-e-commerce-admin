@@ -10,6 +10,7 @@ import DashboardPage from "./pages/DashboardPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { AboutPage } from "./pages/AboutPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import AddProductForm from "./components/AddProductForm";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,6 +18,7 @@ function App() {
     setIsSidebarOpen(!isSidebarOpen);
   };
   const [productList, setProductList] = useState(products);
+
   return (
     <>
       <Navbar onToggleSidebar={toggleSidebar} />
@@ -36,6 +38,15 @@ function App() {
         <Route
           path="/products/:productId"
           element={<ProductDetailPage productListData={productList} />}
+        />
+        <Route
+          path="/addProduct"
+          element={
+            <AddProductForm
+              productList={productList}
+              setProductList={setProductList}
+            />
+          }
         />
       </Routes>
       <Footer />
