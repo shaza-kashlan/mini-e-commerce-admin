@@ -24,10 +24,9 @@ export const ProductCard = (props) => {
       </div>
       <div className="card-rating">
         <p> Product Rate :{props.oneProduct.rating > 4.5 ? "😀" : "😥"}</p>
+
         <Link to={`/updateProduct/${props.oneProduct.id}`}>
-        <button >
-          Update Button
-        </button>
+          <button>Update Button</button>
         </Link>
 
         <button
