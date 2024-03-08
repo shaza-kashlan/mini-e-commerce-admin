@@ -12,19 +12,56 @@ const ProductDetailPage = ({ productListData }) => {
     }
   });
 
-  const [oneProduct, setOneProduct] = useState(productDetail);
-  if (!oneProduct) {
+  const [product, setOneProduct] = useState(productDetail);
+  if (!product) {
     console.log("in the if");
     return <Navigate to="/" />;
   }
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? product.images.length - 1 : prevSlide - 1
+    );
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === product.images.length - 1 ? 0 : prevSlide + 1
+    );
+  };
+  console.log(product.images[0]);
+
   return (
-    <div>
-      <ProductCard
-        oneProduct={oneProduct}
-        key={oneProduct.id}
-        dataList={productListData}
-        setProductList={setOneProduct}
-      />
+    <div className="product-detail">
+      <div className="sliderImg">
+        {product.images &&
+          product.images.map((image, index) => (
+            <div
+              key={index}
+              className={index === currentSlide ? "slide active" : "slide"}
+            >
+              <img src={image} alt={`Slide ${index + 1}`} />
+            </div>
+          ))}
+        <button className="prev" onClick={handlePrevSlide}>
+          &#10094;
+        </button>
+        <button className="next" onClick={handleNextSlide}>
+          &#10095;
+        </button>
+      </div>
+      <div className="product-info">
+        <h2>{product.title}</h2>
+        <p>Description: {product.description}</p>
+        <p>Price: {product.price}€</p>
+        <p>Discount Percentage: {product.discountPercentage}</p>
+        <p>Rating: {product.rating}</p>
+        <p>Stock: {product.stock}</p>
+        <p>Brand: {product.brand}</p>
+        <p>Category: {product.category}</p>
+      </div>
     </div>
   );
 };
