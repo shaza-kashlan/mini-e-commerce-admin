@@ -1,3 +1,7 @@
+body {
+  font-family: "Sofia Sans", sans-serif;
+  font-size: medium;
+}
 .navbar img {
   height: 30%;
   width: 50px;
@@ -58,28 +62,50 @@
   border-radius: 5px;
 }
 
-.card-info {
+card-info {
   margin-top: 10px;
+}
+
+.card-info > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
 }
 
 .card-info h3 {
   margin: 0;
-  color: black;
+  margin-right: 10px; /* Add space between h3 and p */
+  color: #6a0047; /* Color for h3 */
 }
 
 .card-info p {
-  margin: 5px 0;
+  margin: 0;
+  color: black; /* Color for p */
 }
-
 .card-rating {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.card-rating p {
+  margin: 0;
+  margin-right: 10px; /* Add space between text and buttons */
+  color: #6a0047; /* Color for text */
 }
 
 .card-rating button {
-  color: #6a0047;
+  padding: 5px 10px;
+  background-color: #6a0047;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-rating button:hover {
+  background-color: #4d0033; /* Darker color on hover */
 }
 
 /*side bar style */
@@ -232,51 +258,49 @@ form label {
   width : 400px;
 } */
 
-.form-boxes input {
+/* .form-boxes input {
   margin: 5px;
   padding: 5px 10px;
-}
+} */
 
 /* AddProductForm.css */
-.form-container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+form-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Align items with space between */
+  gap: 20px; /* Add some space between items */
 }
 
-.form-container h2 {
-  margin-bottom: 20px;
+.form-boxes div {
+  flex: 0 1 calc(45% - 20px); /* Adjust width of each item */
 }
 
-.form-container label {
+.form-boxes label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  color: #6a0047;
 }
 
-.form-container input[type="text"],
-.form-container input[type="number"],
-.form-container input[type="url"],
-.form-container textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+.form-boxes input,
+.form-boxes textarea,
+.form-boxes select {
+  width: calc(100% - 10px); /* Adjust the width as needed */
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.form-container button {
-  background-color: rgb(156, 65, 117);
+.form-boxes button {
+  padding: 10px 20px;
+  background-color: #6a0047;
   color: #fff;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.form-container button:hover {
-  background-color: rgb(92, 36, 67);
+.form-boxes button:hover {
+  background-color: #6a0047;
 }
 
 /**** style for product detail page ******/
@@ -295,23 +319,19 @@ form label {
 }
 
 .product-info {
-  border: 1px solid rgb(156, 65, 117);
+  border: 2px solid rgb(156, 65, 117);
   padding: 20px;
   border-radius: 5px;
 }
 
-.product-info h2 {
-  margin-bottom: 10px;
-  color: #6a0047;
+.product-info h3 {
+  display: inline;
+  color: #4d0033;
+  margin-right: 10px;
 }
-
 .product-info p {
-  margin: 5px 0;
-  color: #6a0047;
-}
-
-.product-info p:first-child {
-  margin-top: 0;
+  display: inline;
+  color: black;
 }
 
 /***** style slide img /////*/

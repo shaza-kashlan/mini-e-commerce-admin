@@ -11,7 +11,7 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { AboutPage } from "./pages/AboutPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import AddProductForm from "./components/AddProductForm";
-import UpdateProductForm  from "./components/UpdateProductForm";
+import UpdateProductForm from "./components/UpdateProductForm";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -49,14 +49,16 @@ function App() {
             />
           }
         />
-        <Route 
-          path="/updateProduct/:productId" 
+        <Route
+          path="/updateProduct/:productId"
           element={
-            <UpdateProductForm 
+            <UpdateProductForm
               productList={productList}
-              setProductList={setProductList}/>}
+              setProductList={setProductList}
+            />
+          }
         />
-        </Routes>
+      </Routes>
       <Footer />
     </>
   );

@@ -53,14 +53,38 @@ const ProductDetailPage = ({ productListData }) => {
         </button>
       </div>
       <div className="product-info">
-        <h2>{product.title}</h2>
-        <p>Description: {product.description}</p>
-        <p>Price: {product.price}€</p>
-        <p>Discount Percentage: {product.discountPercentage}</p>
-        <p>Rating: {product.rating}</p>
-        <p>Stock: {product.stock}</p>
-        <p>Brand: {product.brand}</p>
-        <p>Category: {product.category}</p>
+        <div>
+          <h3>Title:</h3>
+          <p>{product.title}</p>
+        </div>
+        <div>
+          <h3>Description:</h3>
+          <p>{product.description}</p>
+        </div>
+        <div>
+          <h3>Price:</h3>
+          <p>{product.price}€</p>
+        </div>
+        <div>
+          <h3>Discount Percentage:</h3>
+          <p>{product.discountPercentage}</p>
+        </div>
+        <div>
+          <h3>Rating:</h3>
+          <p>{product.rating}</p>
+        </div>
+        <div>
+          <h3>Stock:</h3>
+          <p>{product.stock}</p>
+        </div>
+        <div>
+          <h3>Brand:</h3>
+          <p>{product.brand}</p>
+        </div>
+        <div>
+          <h3>Category:</h3>
+          <p>{product.category}</p>
+        </div>
       </div>
     </div>
   );
