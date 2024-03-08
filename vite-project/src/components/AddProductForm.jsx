@@ -94,6 +94,7 @@ function AddProductForm({ productList, setProductList }) {
           />
         </label>
       </div>
+
       <div>
         <label>
           Rating :
