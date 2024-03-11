@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 
 function UpdateProductForm({ productList, setProductList }) {
   const [title, setTitle] = useState("");
@@ -21,7 +21,7 @@ function UpdateProductForm({ productList, setProductList }) {
         return true;
       }
     });
-    console.log("here is the found ", productList);
+    // console.log("here is the found ", productList);
 
     setTitle(foundProduct.title);
     setDescription(foundProduct.description);
@@ -36,6 +36,7 @@ function UpdateProductForm({ productList, setProductList }) {
   }, []);
 
   const handleUpdateProduct = (e) => {
+
     e.preventDefault();
 
     const mappedProduct = productList.map((product) => {
@@ -60,12 +61,14 @@ function UpdateProductForm({ productList, setProductList }) {
     });
 
     setProductList(mappedProduct);
-    nav(`/products/${mappedProduct.id}`);
+    nav(`/products/${productId}`);
   };
 
   const handleCategoryChange = (e) => {
+    // e.preventDefault();
     const selectedCategory = e.target.value;
-    if (selectedCategory === "smartphones") {
+    console.log("func called")
+    if (selectedCategory === e.category) {
       setCategory("");
     } else {
       setCategory(selectedCategory);
@@ -160,7 +163,7 @@ function UpdateProductForm({ productList, setProductList }) {
             <select
               name="category"
               type="text"
-              onChange={(e) => handleCategoryChange}
+              onChange={(e) => setCategory(e.target.value)}
             >
               <option value="smartphones">Smartphones</option>
               <option value="laptops">Laptops</option>
@@ -209,7 +212,9 @@ function UpdateProductForm({ productList, setProductList }) {
           </label>
         </div>
       </div>
+      
       <button type="submit">Update Product</button>
+      
     </form>
   );
 }
