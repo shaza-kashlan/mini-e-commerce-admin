@@ -33,6 +33,25 @@ const ProductDetailPage = ({ productListData }) => {
   };
   console.log(product.images[0]);
 
+  function getRating() {
+    const fullStar = Math.round(product.rating);
+    const rating = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < fullStar) {
+        rating.push("⭐");
+      } else {
+        rating.push("☆");
+      }
+    }
+    return (
+      <div className="rating">
+        {rating.map((star, index) => {
+          return <div key={index}>{`${star}`}</div>;
+        })}
+      </div>
+    );
+  }
+
   return (
     <div className="product-detail">
       <div className="sliderImg">
@@ -67,11 +86,11 @@ const ProductDetailPage = ({ productListData }) => {
         </div>
         <div>
           <h3>Discount Percentage:</h3>
-          <p>{product.discountPercentage}</p>
+          <p>{product.discountPercentage}%</p>
         </div>
         <div>
-          <h3>Rating:</h3>
-          <p>{product.rating}</p>
+          <h3>Rating</h3>
+          <p>{getRating()}</p>
         </div>
         <div>
           <h3>Stock:</h3>

@@ -60,8 +60,7 @@ function UpdateProductForm({ productList, setProductList }) {
     });
 
     setProductList(mappedProduct);
-
-    nav("/");
+    nav(`/products/${mappedProduct.id}`);
   };
 
   const handleCategoryChange = (e) => {

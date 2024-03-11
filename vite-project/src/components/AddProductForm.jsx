@@ -47,8 +47,8 @@ function AddProductForm({ productList, setProductList }) {
 
   return (
     <form>
-      <h2>Add a New Product</h2>
       <div className="form-boxes">
+        <h2>Add a New Product</h2>
         <div>
           <label>
             Title :
@@ -121,18 +121,6 @@ function AddProductForm({ productList, setProductList }) {
         </div>
         <div>
           <label>
-            Brand :
-            <input
-              placeholder="Product's brand"
-              name="brand"
-              type="text"
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
             Category :
             <select
               name="category"
@@ -163,6 +151,19 @@ function AddProductForm({ productList, setProductList }) {
             </select>
           </label>
         </div>
+        <div>
+          <label>
+            Brand :
+            <input
+              placeholder="Product's brand"
+              name="brand"
+              type="text"
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
+            />
+          </label>
+        </div>
+
         <div>
           <label>
             Thumbnail :

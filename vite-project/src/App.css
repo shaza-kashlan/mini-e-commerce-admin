@@ -40,26 +40,29 @@ body {
 
 .product-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
 }
 
 .card {
-  width: 500px;
+  width: 400px;
+
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 10px;
+  margin: 20px;
   color: rgb(130, 46, 105);
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  width: 300px;
+  height: 200px;
   border-radius: 5px;
+  margin-left: 50px;
 }
 
 card-info {
@@ -248,20 +251,10 @@ form button {
 }
 
 form label {
-  text-decoration: overline dotted;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-
-/* .form-boxes{
-  width : 400px;
-} */
-
-/* .form-boxes input {
-  margin: 5px;
-  padding: 5px 10px;
-} */
 
 /* AddProductForm.css */
 form-boxes {
@@ -282,14 +275,19 @@ form-boxes {
 }
 
 .form-boxes input,
-.form-boxes textarea,
-.form-boxes select {
+.form-boxes textarea {
   width: calc(100% - 10px); /* Adjust the width as needed */
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
+.form-boxes select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 .form-boxes button {
   padding: 10px 20px;
   background-color: #6a0047;
@@ -301,6 +299,10 @@ form-boxes {
 
 .form-boxes button:hover {
   background-color: #6a0047;
+}
+
+.form-boxes h2 {
+  color: #6a0047;
 }
 
 /**** style for product detail page ******/
@@ -322,6 +324,7 @@ form-boxes {
   border: 2px solid rgb(156, 65, 117);
   padding: 20px;
   border-radius: 5px;
+  width: 500px;
 }
 
 .product-info h3 {
@@ -330,8 +333,13 @@ form-boxes {
   margin-right: 10px;
 }
 .product-info p {
-  display: inline;
+  display: inline-block;
   color: black;
+}
+
+.product-info > div {
+  display: flex;
+  align-items: center;
 }
 
 /***** style slide img /////*/
@@ -373,4 +381,9 @@ form-boxes {
 
 .next {
   right: 0;
+}
+
+.rating {
+  display: flex;
+  width: 100px;
 }

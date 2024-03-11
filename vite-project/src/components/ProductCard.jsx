@@ -7,6 +7,25 @@ export const ProductCard = (props) => {
     );
   };
 
+  function getRating() {
+    const fullStar = Math.round(props.oneProduct.rating);
+    const rating = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < fullStar) {
+        rating.push("⭐");
+      } else {
+        rating.push("☆");
+      }
+    }
+    return (
+      <div className="rating">
+        {rating.map((star, index) => {
+          return <div key={index}>{`${star}`}</div>;
+        })}
+      </div>
+    );
+  }
+
   return (
     <div key={props.oneProduct.id} className="card">
       <img src={props.oneProduct.thumbnail} alt={props.oneProduct.title} />
@@ -18,36 +37,36 @@ export const ProductCard = (props) => {
         </div>
         <div>
           <h3>Description:</h3>
-          <p>{props.oneProduct.description}</p>
+          <p>{props.oneProduct.description.substring(0, 50)}...</p>
         </div>
         <div>
           <h3>Price:</h3>
           <p>{props.oneProduct.price}€</p>
         </div>
-        <div>
+        {/* <div>
           <h3>Discount Percentage:</h3>
-          <p>{props.oneProduct.discountPercentage}</p>
-        </div>
+          <p>{props.oneProduct.discountPercentage}%</p>
+        </div> */}
         <div>
           <h3>Rating:</h3>
-          <p>{props.oneProduct.rating}</p>
+          <p>{getRating()}</p>
         </div>
-        <div>
+        {/* <div>
           <h3>Stock:</h3>
           <p>{props.oneProduct.stock}</p>
-        </div>
+        </div> */}
+        {/* <div>
+          <h3>Category:</h3>
+          <p>{props.oneProduct.category}</p>
+        </div> */}
         <div>
           <h3>Brand:</h3>
           <p>{props.oneProduct.brand}</p>
         </div>
-        <div>
-          <h3>Category:</h3>
-          <p>{props.oneProduct.category}</p>
-        </div>
       </div>
 
       <div className="card-rating">
-        <p>Product Rate: {props.oneProduct.rating > 4.5 ? "😀" : "😥"}</p>
+        <p>Product Rate: {props.oneProduct.rating > 4.5 ? "👍" : "👎"}</p>
 
         <Link to={`/updateProduct/${props.oneProduct.id}`}>
           <button>Update Button</button>
