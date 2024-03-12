@@ -12,6 +12,8 @@ function UpdateProductForm({ productList, setProductList }) {
   const [category, setCategory] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [images, setImages] = useState("");
+  const [selectedThumbnail, setSelectedThumbnail] = useState(null);
+  const [selectedImages, setSelectedImages] = useState([]);
   const nav = useNavigate();
   const { productId } = useParams();
 
@@ -35,8 +37,19 @@ function UpdateProductForm({ productList, setProductList }) {
     setImages(foundProduct.images);
   }, []);
 
-  const handleUpdateProduct = (e) => {
+  const handleThumbnailChange = (e) => {
+    const file = e.target.files[0];
+    console.log(`file thumb  ${file}`);
+    setSelectedThumbnail(URL.createObjectURL(file));
+  };
 
+  const handleImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+    const imageUrls = files.map((file) => URL.createObjectURL(file));
+    setSelectedImages(imageUrls);
+  };
+
+  const handleUpdateProduct = (e) => {
     e.preventDefault();
 
     const mappedProduct = productList.map((product) => {
@@ -50,8 +63,11 @@ function UpdateProductForm({ productList, setProductList }) {
           stock,
           brand,
           category,
-          thumbnail,
-          images,
+          thumbnail: selectedThumbnail || thumbnail,
+          images:
+            selectedImages.length > 0
+              ? selectedImages
+              : images.split(",").filter(Boolean),
           id: product.id,
         };
         return updatedProduct;
@@ -67,7 +83,7 @@ function UpdateProductForm({ productList, setProductList }) {
   const handleCategoryChange = (e) => {
     // e.preventDefault();
     const selectedCategory = e.target.value;
-    console.log("func called")
+    console.log("func called");
     if (selectedCategory === e.category) {
       setCategory("");
     } else {
@@ -199,6 +215,21 @@ function UpdateProductForm({ productList, setProductList }) {
               onChange={(e) => setThumbnail(e.target.value)}
             />
           </label>
+          <label>
+            Or Select from Computer:
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleThumbnailChange}
+            />
+          </label>
+          {selectedThumbnail && (
+            <img
+              src={selectedThumbnail}
+              alt="Thumbnail"
+              style={{ maxWidth: "100px", maxHeight: "100px", margin: "5px" }}
+            />
+          )}
         </div>
         <div>
           <label>
@@ -210,11 +241,34 @@ function UpdateProductForm({ productList, setProductList }) {
               onChange={(e) => setImages(e.target.value)}
             />
           </label>
+          <label>
+            Or Select from Computer:
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleImagesChange}
+            />
+          </label>
+          <div>
+            {selectedImages.length > 0 &&
+              selectedImages.map((imageUrl, index) => (
+                <img
+                  key={index}
+                  src={imageUrl}
+                  alt={`Image ${index}`}
+                  style={{
+                    maxWidth: "100px",
+                    maxHeight: "100px",
+                    marginRight: "5px",
+                  }}
+                />
+              ))}
+          </div>
         </div>
       </div>
-      
+
       <button type="submit">Update Product</button>
-      
     </form>
   );
 }

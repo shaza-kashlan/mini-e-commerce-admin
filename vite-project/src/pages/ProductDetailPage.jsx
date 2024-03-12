@@ -55,7 +55,7 @@ const ProductDetailPage = ({ productListData }) => {
   return (
     <div className="product-detail">
       <div className="sliderImg">
-        {product.images &&
+        {product.images && product.images.length > 0 ? (
           product.images.map((image, index) => (
             <div
               key={index}
@@ -63,7 +63,12 @@ const ProductDetailPage = ({ productListData }) => {
             >
               <img src={image} alt={`Slide ${index + 1}`} />
             </div>
-          ))}
+          ))
+        ) : (
+          <div className="slide active">
+            <img src={product.thumbnail} alt="Thumbnail" />
+          </div>
+        )}
         <button className="prev" onClick={handlePrevSlide}>
           &#10094;
         </button>

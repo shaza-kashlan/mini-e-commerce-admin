@@ -12,6 +12,8 @@ function AddProductForm({ productList, setProductList }) {
   const [category, setCategory] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [images, setImages] = useState("");
+  const [selectedThumbnail, setSelectedThumbnail] = useState(null);
+  const [selectedImages, setSelectedImages] = useState([]);
   const nav = useNavigate();
 
   const handleSubmitProduct = (e) => {
@@ -26,9 +28,14 @@ function AddProductForm({ productList, setProductList }) {
       stock,
       brand,
       category,
-      thumbnail,
-      images: images.split(","), // Split images by comma to get an array ?? need to check}
+      thumbnail: selectedThumbnail || thumbnail,
+      images:
+        selectedImages.length > 0
+          ? selectedImages
+          : images.split(",").filter(Boolean),
     };
+
+    console.log(`product ${newProduct.images[0]}`);
     setProductList([newProduct, ...productList]);
 
     // Reset form fields
@@ -42,7 +49,22 @@ function AddProductForm({ productList, setProductList }) {
     setCategory("");
     setThumbnail("");
     setImages("");
-    nav("/");
+    setSelectedThumbnail(null);
+    setSelectedImages([]);
+    nav(`/products/${newProduct.id}`);
+  };
+  const handleThumbnailChange = (e) => {
+    const file = e.target.files[0];
+    console.log(`file thumb  ${file}`);
+    setSelectedThumbnail(URL.createObjectURL(file));
+  };
+
+  const handleImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+    console.log("Selected files:", files);
+    const imageUrls = files.map((file) => URL.createObjectURL(file));
+    console.log("Selected image URLs:", imageUrls);
+    setSelectedImages(imageUrls); // Set selectedImages state to array of image URLs
   };
 
   return (
@@ -163,33 +185,69 @@ function AddProductForm({ productList, setProductList }) {
             />
           </label>
         </div>
-
         <div>
           <label>
-            Thumbnail :
+            Thumbnail URL:
             <input
-              placeholder="Insert the img URL"
-              name="thumbnail"
-              type="url"
+              type="text"
               value={thumbnail}
               onChange={(e) => setThumbnail(e.target.value)}
             />
           </label>
+          <label>
+            Or Select from Computer:
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleThumbnailChange}
+            />
+          </label>
+          {selectedThumbnail && (
+            <img
+              src={selectedThumbnail}
+              alt="Thumbnail"
+              style={{ maxWidth: "100px", maxHeight: "100px", margin: "5px" }}
+            />
+          )}
         </div>
+
         <div>
           <label>
-            Images :
+            Images URL(s):
             <input
-              placeholder="Separate URLs by commas"
-              name="images"
               type="text"
+              placeholder="Separate URLs by commas"
               value={images}
               onChange={(e) => setImages(e.target.value)}
             />
           </label>
+          <label>
+            Or Select from Computer:
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleImagesChange}
+            />
+          </label>
+          <div>
+            {selectedImages &&
+              selectedImages.map((imageUrl, index) => (
+                <img
+                  key={index}
+                  src={imageUrl}
+                  alt={`Image ${index}`}
+                  style={{
+                    maxWidth: "100px",
+                    maxHeight: "100px",
+                    marginRight: "5px",
+                  }}
+                />
+              ))}
+          </div>
         </div>
       </div>
-      <button type="submit" on onClick={handleSubmitProduct}>
+      <button type="submit" onClick={handleSubmitProduct}>
         Add Product
       </button>
     </form>
