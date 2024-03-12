@@ -10,7 +10,7 @@ const Navbar = ({ onToggleSidebar }) => {
         alt="sideBarImage"
         onClick={onToggleSidebar}
       />
-      <h3>E-commerce App</h3>
+      <h3>Kwik E-Market</h3>
     </div>
   );
 };

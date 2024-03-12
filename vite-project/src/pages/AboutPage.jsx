@@ -5,7 +5,7 @@ export const AboutPage = () => {
   return (
     <div>
       <div className="aboutDescription">
-        <h1>Mini Project : e-commerce web-site</h1>
+        <h1>Mini Project : Kwik E-Market</h1>
         <p>
           Our e-commerce web-site is an app with an admin dashboard where the
           admin can see and manage the inventory and all the products in the
