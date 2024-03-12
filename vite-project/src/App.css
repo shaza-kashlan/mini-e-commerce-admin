@@ -98,13 +98,14 @@ card-info {
   color: #6a0047; /* Color for text */
 }
 
-.card-rating button {
+.action-buttons button {
   padding: 5px 10px;
   background-color: #6a0047;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: 60px;
 }
 
 .card-rating button:hover {

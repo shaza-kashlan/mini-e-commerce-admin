@@ -38,7 +38,12 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
         <Route
           path="/products/:productId"
-          element={<ProductDetailPage productListData={productList} />}
+          element={
+            <ProductDetailPage
+              productListData={productList}
+              setProductList={setProductList}
+            />
+          }
         />
         <Route
           path="/addProduct"

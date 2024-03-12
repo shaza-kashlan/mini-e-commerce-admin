@@ -1,9 +1,8 @@
 import React from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { ProductCard } from "../components/ProductCard";
 
-const ProductDetailPage = ({ productListData }) => {
+const ProductDetailPage = ({ productListData, setProductList }) => {
   const { productId } = useParams();
 
   const productDetail = productListData.find((product) => {
@@ -12,11 +11,19 @@ const ProductDetailPage = ({ productListData }) => {
     }
   });
 
+  const nav = useNavigate();
+
   const [product, setOneProduct] = useState(productDetail);
   if (!product) {
     console.log("in the if");
     return <Navigate to="/" />;
   }
+  const deleteProduct = (productId) => {
+    setProductList(
+      productListData.filter((product) => productId !== product.id)
+    );
+    nav("/");
+  };
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -108,6 +115,14 @@ const ProductDetailPage = ({ productListData }) => {
         <div>
           <h3>Category:</h3>
           <p>{product.category}</p>
+        </div>
+        <div className="action-buttons">
+          <Link to={`/updateProduct/${product.id}`}>
+            <button>Update Button</button>
+          </Link>
+          <button onClick={() => deleteProduct(product.id)}>
+            Delete Button
+          </button>
         </div>
       </div>
     </div>

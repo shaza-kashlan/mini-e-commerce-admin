@@ -1,12 +1,4 @@
-import { Link } from "react-router-dom";
-
 export const ProductCard = (props) => {
-  const deleteProduct = (productId) => {
-    props.setProductList(
-      props.dataList.filter((product) => productId !== product.id)
-    );
-  };
-
   function getRating() {
     const fullStar = Math.round(props.oneProduct.rating);
     const rating = [];
@@ -66,15 +58,7 @@ export const ProductCard = (props) => {
       </div>
 
       <div className="card-rating">
-        <p>Product Rate: {props.oneProduct.rating > 4.5 ? "👍" : "👎"}</p>
-
-        <Link to={`/updateProduct/${props.oneProduct.id}`}>
-          <button>Update Button</button>
-        </Link>
-
-        <button onClick={() => deleteProduct(props.oneProduct.id)}>
-          Delete Button
-        </button>
+        <p>Product Rate: {props.oneProduct.rating > 3 ? "👍" : "👎"}</p>
       </div>
     </div>
   );
