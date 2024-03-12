@@ -31,7 +31,7 @@ const ProductDetailPage = ({ productListData }) => {
       prevSlide === product.images.length - 1 ? 0 : prevSlide + 1
     );
   };
-  console.log(product.images[0]);
+  console.log(` inside detail ${product.images[0]}`);
 
   function getRating() {
     const fullStar = Math.round(product.rating);

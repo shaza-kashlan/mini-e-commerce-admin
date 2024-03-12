@@ -41,12 +41,14 @@ function UpdateProductForm({ productList, setProductList }) {
     const file = e.target.files[0];
     console.log(`file thumb  ${file}`);
     setSelectedThumbnail(URL.createObjectURL(file));
+    setThumbnail("");
   };
 
   const handleImagesChange = (e) => {
     const files = Array.from(e.target.files);
     const imageUrls = files.map((file) => URL.createObjectURL(file));
     setSelectedImages(imageUrls);
+    setImages("");
   };
 
   const handleUpdateProduct = (e) => {
@@ -64,10 +66,14 @@ function UpdateProductForm({ productList, setProductList }) {
           brand,
           category,
           thumbnail: selectedThumbnail || thumbnail,
+
           images:
             selectedImages.length > 0
               ? selectedImages
+              : Array.isArray(images)
+              ? images
               : images.split(",").filter(Boolean),
+
           id: product.id,
         };
         return updatedProduct;
